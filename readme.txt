@@ -54,21 +54,21 @@ Sections:
 *	You must have the [Formidable](https://es.wordpress.org/plugins/formidable/ "Formidable") plugin installed.
 
 == Installation ==
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
-3. In the menu, below Settings, you will see 'IntegriaIMS WP'. Use it to configure the plugin.
-4. Go to 'Setup' and fill the fields with your Integria data.
-5. You can create forms with Formidable plugin to use later to create leads and tickets.
-6. Go to Tickets or Leads and click the button Create to add the new form.
-7. Insert the shortcode of the Formidable form in a page. Fill it, and send it to check if the lead/ticket is inserted correctly.
+1.	Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+2.	Activate the plugin through the 'Plugins' screen in WordPress
+3.	In the menu, below Settings, you will see 'IntegriaIMS WP'. Use it to configure the plugin.
+4.	Go to 'Setup' and fill the fields with your Integria data.
+5.	You can create forms with Formidable plugin to use later to create leads and tickets.
+6.	Go to Tickets or Leads and click the button Create to add the new form.
+7.	Insert the shortcode of the Formidable form in a page. Fill it, and send it to check if the lead/ticket is inserted correctly.
 
 == Screenshots ==
-1. This is the Setup Menu where you must configure your access credentials to Integria.
-2. Here are the forms leads you have created.
-3. Click the button "Create" to create a new form Lead, then Save Changes.
-4. Here are the forms tickets you have created.
-5. Click the button "Create Ticket" to create a new form Ticket, then Save Changes.
-6. Create previously your forms with the plugin Formidable.
+1.	This is the Setup Menu where you must configure your access credentials to Integria.
+2.	Here are the forms leads you have created.
+3.	Click the button "Create" to create a new form Lead, then Save Changes.
+4.	Here are the forms tickets you have created.
+5.	Click the button "Create Ticket" to create a new form Ticket, then Save Changes.
+6.	Create previously your forms with the plugin Formidable.
 
 
 == Changelog ==

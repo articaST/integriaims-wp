@@ -350,13 +350,13 @@ class IIMS_AdminPages {
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">
-							<?php esc_html_e("Formulario");?>
+							<?php esc_html_e("Form");?>
 						</th>
 						<td>
 							<fieldset>
 								<legend class="screen-reader-text">
 									<span>
-										<?php esc_html_e("Formulario");?>
+										<?php esc_html_e("Form");?>
 									</span>
 								</legend>
 								<label for="iimswp-options-leads[id_form]">
@@ -751,13 +751,13 @@ class IIMS_AdminPages {
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">
-							<?php esc_html_e("Formulario");?>
+							<?php esc_html_e("Form");?>
 						</th>
 						<td>
 							<fieldset>
 								<legend class="screen-reader-text">
 									<span>
-										<?php esc_html_e("Formulario");?>
+										<?php esc_html_e("Form");?>
 									</span>
 								</legend>
 								<label for="iimswp-options-tickets[id_form]">

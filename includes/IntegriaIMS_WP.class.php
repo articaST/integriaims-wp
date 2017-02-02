@@ -378,7 +378,7 @@ class IntegriaIMS_WP {
 
 		// With this if-else I can know if the form is a Lead or a Ticket 
 		if( count($table_data_multi) != 0 AND count($table_data_tickets_multi) != 0 ){
-			$iims_wp->debug('Duplicate table.');
+			$iims_wp->debug('Duplicate Form.');
 		}	
 
 		else if(count($table_data_multi) != 0){

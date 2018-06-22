@@ -615,10 +615,20 @@ class IIMS_AdminPages {
 							<th style="text-align: center;"><?php esc_html_e("ID Group");?></th>
 							<th style="text-align: center;"><?php esc_html_e("Priority");?></th>
 							<th style="text-align: center;"><?php esc_html_e("Description");?></th>
+							<th style="text-align: center;"><?php esc_html_e("Status");?></th>
+							<th style="text-align: center;"><?php esc_html_e("ID incident type");?></th>
+							<!-- <?php for ($i = 1; $i <= 6; $i++) { ?> 
+							<th style="text-align: center;"><?php esc_html_e("field".$i);?></th>
+							<?php } ?> -->
 							<th style="text-align: center;"><?php esc_html_e("Title_value");?></th>
 							<th style="text-align: center;"><?php esc_html_e("ID Group_value");?></th>
 							<th style="text-align: center;"><?php esc_html_e("Priority_value");?></th>
 							<th style="text-align: center;"><?php esc_html_e("Description_value");?></th>
+							<th style="text-align: center;"><?php esc_html_e("Status_value");?></th>
+							<th style="text-align: center;"><?php esc_html_e("ID incident type_value");?></th>
+							<!-- <?php for ($i = 1; $i <= 6; $i++) { ?> 
+							<th style="text-align: center;"><?php esc_html_e("field".$i."_value");?></th>
+							<?php } ?> -->
 							<th style="text-align: center;"></th>
 						</tr>
 					</thead>
@@ -650,10 +660,26 @@ class IIMS_AdminPages {
 								<td style="text-align: center;"><?php esc_html_e($entry->id_group);?></td>
 								<td style="text-align: center;"><?php esc_html_e($entry->priority);?></td>
 								<td style="text-align: center;"><?php esc_html_e($entry->description);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->status);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->id_incident_type);?></td>
+								<!-- <td style="text-align: center;"><?php esc_html_e($entry->field1);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field2);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field3);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field4);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field5);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field6);?></td> -->
 								<td style="text-align: center;"><?php esc_html_e($entry->title_value);?></td>
 								<td style="text-align: center;"><?php esc_html_e($entry->id_group_value);?></td>
 								<td style="text-align: center;"><?php esc_html_e($entry->priority_value);?></td>
 								<td style="text-align: center;"><?php esc_html_e($entry->description_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->status_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->id_incident_type_value);?></td>
+								<!-- <td style="text-align: center;"><?php esc_html_e($entry->field1_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field2_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field3_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field4_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field5_value);?></td>
+								<td style="text-align: center;"><?php esc_html_e($entry->field6_value);?></td> -->
 								<td style="text-align: center;">
 									<img src=" <?php echo esc_url(admin_url( 'images/no.png'))?> " id='btn_add_tickets_<?php echo esc_attr($entry->id); ?>' title="Delete" onclick="delete_form_data_tickets(<?php echo esc_attr($entry->id); ?>);" />
 								</td>						
@@ -884,7 +910,7 @@ class IIMS_AdminPages {
 										type="text"
 										name="iimswp-options-tickets[priority-static]"
 										value=""
-										placeholder="10, 0, 1, 2, 3, 4"
+										placeholder="10(Maintenance), 0(Informative), 1(Low), 2(Medium), 3(Serious), 4(Very serious)"
 										id="priority-static"
 										/>
 								</label>
@@ -928,6 +954,123 @@ class IIMS_AdminPages {
 							</fieldset>
 						</td>
 					</tr>
+					
+					<tr valign="top">
+						<th scope="row">
+							<?php esc_html_e("Status");?>
+						</th>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("Status");?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[status]">
+								<select name="options[foo-t]" id="status" >
+									<option selected></option> 
+								</select>
+								</label>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("Status");?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[Status]">
+									<input
+										class="regular-text "
+										type="text"
+										name="iimswp-options-tickets[status-static]"
+										value=""
+										placeholder="1 (New), 2(Unconfirmed), 3(Assigned), 4(Re-opened), 5(Pending to be closed), 6(Pending on a third person), 7(closed)"
+										id="status-static"
+										/>
+								</label>
+							</fieldset>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+						<th scope="row">
+							<?php esc_html_e("ID incident type");?>
+						</th>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("ID incident type");?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[id_incident_type]">
+								<select name="options[foo-t]" id="id_incident_type" >
+									<option selected></option> 
+								</select>
+								</label>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("ID incident type");?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[id_incident_type]">
+									<input
+										class="regular-text "
+										type="text"
+										name="iimswp-options-tickets[id_incident_type-static]"
+										value=""
+										id="id_incident_type-static"
+										/>
+								</label>
+							</fieldset>
+						</td>
+					</tr>
+					
+					<?php for ($i = 1; $i <= 6; $i++) { ?> 
+					<tr valign="top">
+						<th scope="row">
+							<?php esc_html_e("Field".$i);?>
+						</th>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("Field".$i);?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[<?php echo 'field'.$i; ?>]">
+								<select name="options[foo-t]" <?php echo ' id="field'.$i.'"'; ?>>
+									<option selected></option> 
+								</select>
+								</label>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend class="screen-reader-text">
+									<span>
+										<?php esc_html_e("Field".$i);?>
+									</span>
+								</legend>
+								<label for="iimswp-options-tickets[<?php echo 'Field'.$i; ?>]">
+									<input
+										class="regular-text "
+										type="text"
+										name="iimswp-options-tickets[<?php echo 'field'.$i; ?>-static]"
+										value=""
+										id=<?php echo '"field'.$i.'-static"'; ?>
+										/>
+								</label>
+							</fieldset>
+						</td>
+					</tr>
+				<?php } ?>
 				</table>
 				<p class="submit">
 				<input

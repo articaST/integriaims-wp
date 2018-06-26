@@ -92,11 +92,27 @@ class IntegriaIMS_WP {
 			`title` varchar(255) NOT NULL DEFAULT '',
 			`id_group` varchar(255) NOT NULL DEFAULT '', 
 			`priority` varchar(255) NOT NULL DEFAULT '',
-			`description` varchar(255) NOT NULL DEFAULT '',		
+			`description` varchar(255) NOT NULL DEFAULT '',
+			`status` varchar(255) NOT NULL DEFAULT '',		
+			`id_incident_type` varchar(255) NOT NULL DEFAULT '',		
+			`field1` varchar(255) NOT NULL DEFAULT '',		
+			`field2` varchar(255) NOT NULL DEFAULT '',		
+			`field3` varchar(255) NOT NULL DEFAULT '',		
+			`field4` varchar(255) NOT NULL DEFAULT '',		
+			`field5` varchar(255) NOT NULL DEFAULT '',		
+			`field6` varchar(255) NOT NULL DEFAULT '',		
 			`title_value` varchar(255) NOT NULL DEFAULT '',
 			`id_group_value` varchar(255) NOT NULL DEFAULT '', 
 			`priority_value` varchar(255) NOT NULL DEFAULT '',
-			`description_value` varchar(255) NOT NULL DEFAULT '',					
+			`description_value` varchar(255) NOT NULL DEFAULT '',
+			`status_value` varchar(255) NOT NULL DEFAULT '',
+			`id_incident_type_value` varchar(255) NOT NULL DEFAULT '',
+			`field1_value` varchar(255) NOT NULL DEFAULT '',		
+			`field2_value` varchar(255) NOT NULL DEFAULT '',		
+			`field3_value` varchar(255) NOT NULL DEFAULT '',		
+			`field4_value` varchar(255) NOT NULL DEFAULT '',		
+			`field5_value` varchar(255) NOT NULL DEFAULT '',		
+			`field6_value` varchar(255) NOT NULL DEFAULT '',							
 			PRIMARY KEY (`id`),
 			UNIQUE KEY `id_form` (`id_form`)
 			);";
@@ -565,7 +581,7 @@ class IntegriaIMS_WP {
 				$fields2 = array_merge($fields2,$array_fields2);
 
 				$id = $fields2['id'];
-				$name = htmlentities($fields2['name']);
+				$name = trim(htmlentities($fields2['name']));
 			
 
 				// With the item_id we know which are the fields that belong to the same form
@@ -624,7 +640,7 @@ class IntegriaIMS_WP {
 
 
 			//Check if the variables exists. If the admin has not created the forms in Integria Plugin, and He inserts the form in a page og his web, when the user fills and sends the form, it will give an error.
-			if(!isset($table_data_array['title_value'], $table_data_array['id_group_value'], $table_data_array['priority_value'], $table_data_array['description_value']) ){
+			if(!isset($table_data_array['title_value'], $table_data_array['id_group_value'], $table_data_array['priority_value'], $table_data_array['description_value'], $table_data_array['status_value'], $table_data_array['id_incident_type_value']) ){
 
 				$table_data_array['title_value'] = null ;
 				$data_send_array['title'] = null;
@@ -642,6 +658,13 @@ class IntegriaIMS_WP {
 				$data_send_array['description'] = null ;
 				$description = null;
 
+				$table_data_array['status_value'] = null ;
+				$data_send_array['status'] = null ;
+				$status = null;
+
+				$table_data_array['id_incident_type_value'] = null ;
+				$data_send_array['id_incident_type'] = null ;
+				$id_incident_type = null;
 			}
 			else{
 
@@ -677,6 +700,128 @@ class IntegriaIMS_WP {
 					$description = $table_data_array['description_value'];
 				}
 
+
+				if($table_data_array['status_value'] == '' OR $table_data_array['status_value'] == '-'){
+					$status = $data_send_array['status'];
+				}
+				else{					
+					$status = $table_data_array['status_value'];
+				}
+
+
+				if($table_data_array['id_incident_type_value'] == '' OR $table_data_array['id_incident_type_value'] == '-'){
+					$id_incident_type = $data_send_array['id_incident_type'];
+				}
+				else{					
+					$id_incident_type = $table_data_array['id_incident_type_value'];
+				}
+				//Check if id_incident_type exist. If not the custom fields will be null.
+				if ($id_incident_type !== NULL && $id_incident_type !== ''){
+					//Check if the custom fields exists.
+					if(!isset($table_data_array['field1_value']) ){
+						$table_data_array['field1_value'] = null ;
+						$data_send_array['field1'] = null;
+						$field1 = null;
+					} 
+					else {
+						if($table_data_array['field1_value'] == '' OR $table_data_array['field1_value'] == '-'){
+							if (isset($data_send_array['field1']))
+							$field1 = $data_send_array['field1'];
+							else
+							$field1=null;
+						}
+						else{
+							$field1 = $table_data_array['field1_value'];
+						}
+					}
+
+					if(!isset($table_data_array['field2_value']) ){
+						$table_data_array['field2_value'] = null ;
+						$data_send_array['field2'] = null;
+						$field2 = null;
+					} 
+					else {
+						if($table_data_array['field2_value'] == '' OR $table_data_array['field2_value'] == '-'){
+							if (isset($data_send_array['field2']))
+							$field2 = $data_send_array['field2'];
+							else 
+							$field2 = null;
+						}
+						else{
+							$field2 = $table_data_array['field2_value'];
+						}
+					}
+
+					if(!isset($table_data_array['field3_value']) ){
+						$table_data_array['field3_value'] = null ;
+						$data_send_array['field3'] = null;
+						$field3 = null;
+					} 
+					else {
+						if($table_data_array['field3_value'] == '' OR $table_data_array['field3_value'] == '-'){
+							if (isset($data_send_array['field3']))
+							$field3 = $data_send_array['field3'];
+							else 
+							$field3 = null;
+						}
+						else{
+							$field3 = $table_data_array['field3_value'];
+						}
+					}
+
+					if(!isset($table_data_array['field4_value']) ){
+						$table_data_array['field4_value'] = null ;
+						$data_send_array['field4'] = null;
+						$field4 = null;
+					} 
+					else {
+						if($table_data_array['field4_value'] == '' OR $table_data_array['field4_value'] == '-'){
+							if (isset($data_send_array['field4']))
+							$field4 = $data_send_array['field4'];
+							else 
+							$field4 = null;
+						}
+						else{
+							$field4 = $table_data_array['field4_value'];
+						}
+					}
+
+					if(!isset($table_data_array['field5_value']) ){
+						$table_data_array['field5_value'] = null ;
+						$data_send_array['field5'] = null;
+						$field5 = null;
+					} 
+					else {
+						if($table_data_array['field5_value'] == '' OR $table_data_array['field5_value'] == '-'){
+						if (isset($data_send_array['field5']))
+							$field5 = $data_send_array['field5'];
+							else 
+							$field5 = null;
+						}
+						else{
+							$field5 = $table_data_array['field5_value'];
+						}
+					}
+
+					if(!isset($table_data_array['field6_value']) ){
+						$table_data_array['field6_value'] = null ;
+						$data_send_array['field6'] = null;
+						$field6 = null;
+					} 
+					else {
+						if($table_data_array['field6_value'] == '' OR $table_data_array['field6_value'] == '-'){
+							if (isset($data_send_array['field6']))
+							$field6 = $data_send_array['field6'];
+							else 
+							$field6 = null;
+						}
+						else{
+							$field6 = $table_data_array['field6_value'];
+						}
+					}
+
+				}
+
 			}
 
 
@@ -685,6 +830,15 @@ class IntegriaIMS_WP {
 			$id_group = str_replace("|","",$id_group);
 			$priority = str_replace("|","",$priority);
 			$description = str_replace("|","",$description);
+			$status = str_replace("|","",$status);
+			$id_incident_type = str_replace("|","",$id_incident_type);
+			
+			$field1 = str_replace("|","",$field1);
+			$field2 = str_replace("|","",$field2);
+			$field3 = str_replace("|","",$field3);
+			$field4 = str_replace("|","",$field4);
+			$field5 = str_replace("|","",$field5);
+			$field6 = str_replace("|","",$field6);
 
 
 		    //Data from setup
@@ -696,6 +850,15 @@ class IntegriaIMS_WP {
 		    $user_pass = $options['user_pass'];
 		    $api_pass = $options['api_pass'];
 
+				$id_inventory='';
+				$email='';
+				$owner='';
+				$id_ticket_parent='';
+				$extra_data = '';
+				$resolution = '';
+				$extra_data2 = '';
+				$extra_data3 = '';
+				$extra_data4 = '';
 
 		    $body=array(
 		        'user' => $user_id,
@@ -703,7 +866,7 @@ class IntegriaIMS_WP {
 				'token' => '|',
 		        'user_pass' => $user_pass,
 		        'op' => "create_incident",
-		        'params' => $title."|".$id_group."|".$priority."|".$description);
+		        'params' => $title."|".$id_group."|".$priority."|".$description."|".$id_inventory."|".$id_incident_type."|".$email."|".$owner."|".$id_ticket_parent."|".$status."|".$extra_data."|".$resolution."|".$extra_data2."|".$extra_data3."|".$extra_data4."|".$field1."|".$field2."|".$field3."|".$field4."|".$field5."|".$field6);
 
 
 			$args = array(
@@ -718,7 +881,6 @@ class IntegriaIMS_WP {
 
 
 			$response = wp_remote_post( $api_url, $args );
-
 
 		} //else if
 
@@ -988,18 +1150,48 @@ class IntegriaIMS_WP {
 		$id_group = sanitize_text_field($_POST['id_group']);
 		$priority = sanitize_text_field($_POST['priority']);
 		$description = sanitize_text_field($_POST['description']);
+		$status = sanitize_text_field($_POST['status']);
+		$id_incident_type = sanitize_text_field($_POST['id_incident_type']);
+		$field1 = sanitize_text_field($_POST['field1']);
+		$field2 = sanitize_text_field($_POST['field2']);
+		$field3 = sanitize_text_field($_POST['field3']);
+		$field4 = sanitize_text_field($_POST['field4']);
+		$field5 = sanitize_text_field($_POST['field5']);
+		$field6 = sanitize_text_field($_POST['field6']);
 		$title_value = sanitize_text_field($_POST['title_value']);
 		$id_group_value = sanitize_text_field($_POST['id_group_value']); 
 		$priority_value = sanitize_text_field($_POST['priority_value']);
 		$description_value = sanitize_text_field($_POST['description_value']);
+		$status_value = sanitize_text_field($_POST['status_value']);
+		$id_incident_type_value = sanitize_text_field($_POST['id_incident_type_value']);
+		$field1_value = sanitize_text_field($_POST['field1_value']);
+		$field2_value = sanitize_text_field($_POST['field2_value']);
+		$field3_value = sanitize_text_field($_POST['field3_value']);
+		$field4_value = sanitize_text_field($_POST['field4_value']);
+		$field5_value = sanitize_text_field($_POST['field5_value']);
+		$field6_value = sanitize_text_field($_POST['field6_value']);
 
 
-		if( $title != '' && $id_group != '' && $priority != '' && $description != '' && 
-			$title_value != '' && $id_group_value != '' && $priority_value != '' && $description_value != '' && 
-			$title != null && $id_group != null && $priority != null && $description != null && 
-			$title_value != null && $id_group_value != null && $priority_value != null && $description_value != null ){ 
-
-			$iims_wp->set_data_form_tickets($id_form,$name_form,$title,$id_group,$priority,$description,$title_value,$id_group_value,$priority_value,$description_value);
+		if( $title != '' && $id_group != '' && $priority != '' && $description != '' && $status != '' && 
+			$title_value != '' && $id_group_value != '' && $priority_value != '' && $description_value != '' && $status_value != '' && 
+			$title != null && $id_group != null && $priority != null && $description != null && $status != null && 
+			$title_value != null && $id_group_value != null && $priority_value != null && $description_value != null && $status_value != null ){ 
+			//Check if the incident type exist. If not, custom fields will be null
+			if ($id_incident_type === '' || $id_incident_type === NULL || $id_incident_type === '' || $id_incident_type === NULL){
+				$field1 = NULL;
+				$field2 = NULL;
+				$field3 = NULL;
+				$field4 = NULL;
+				$field5 = NULL;
+				$field6 = NULL;
+				$field1_value = NULL;
+				$field2_value = NULL;
+				$field3_value = NULL;
+				$field4_value = NULL;
+				$field5_value = NULL;
+				$field6_value = NULL;
+				}
+			$iims_wp->set_data_form_tickets($id_form,$name_form,$title,$id_group,$priority,$description,$status,$id_incident_type,$field1,$field2,$field3,$field4,$field5,$field6,$title_value,$id_group_value,$priority_value,$description_value,$status_value,$id_incident_type_value,$field1_value,$field2_value,$field3_value,$field4_value,$field5_value,$field6_value);
 
 		}
 
@@ -1007,7 +1199,7 @@ class IntegriaIMS_WP {
 	} 
 
 
-	private function set_data_form_tickets($id_form,$name_form,$title,$id_group,$priority,$description,$title_value,$id_group_value,$priority_value,$description_value){
+	private function set_data_form_tickets($id_form,$name_form,$title,$id_group,$priority,$description,$status,$id_incident_type,$field1,$field2,$field3,$field4,$field5,$field6,$title_value,$id_group_value,$priority_value,$description_value,$status_value,$id_incident_type_value,$field1_value,$field2_value,$field3_value,$field4_value,$field5_value,$field6_value){
 
 		global $wpdb;
 		$iims_wp = IntegriaIMS_WP::getInstance();
@@ -1023,11 +1215,27 @@ class IntegriaIMS_WP {
 				'id_group' => htmlentities($id_group),
 				'priority' => htmlentities($priority),
 				'description' => htmlentities($description),
+				'status' => htmlentities($status),
+				'id_incident_type' => htmlentities($id_incident_type),
+				'field1' => htmlentities($field1),
+				'field2' => htmlentities($field2),
+				'field3' => htmlentities($field3),
+				'field4' => htmlentities($field4),
+				'field5' => htmlentities($field5),
+				'field6' => htmlentities($field6),
 				'title_value' => htmlentities($title_value),
 				'id_group_value' => htmlentities($id_group_value),
 				'priority_value' => htmlentities($priority_value),
-				'description_value' => htmlentities($description_value)),
-			array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'));
+				'description_value' => htmlentities($description_value),
+				'status_value' => htmlentities($status_value),
+				'id_incident_type' => htmlentities($id_incident_type),
+				'field1_value' => htmlentities($field1_value),
+				'field2_value' => htmlentities($field2_value),
+				'field3_value' => htmlentities($field3_value),
+				'field4_value' => htmlentities($field4_value),
+				'field5_value' => htmlentities($field5_value),
+				'field6_value' => htmlentities($field6_value)),
+			array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'));
 
 		
 		//wp_send_json($return);

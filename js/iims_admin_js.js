@@ -103,7 +103,7 @@
 				
 			}
 
-			jQuery.post(ajaxurl, data, function(response) {
+			// jQuery.post(ajaxurl, data, function(response) {
 				
 				jQuery('#create_toggle').toggle();
 				jQuery('#create_toggle_tickets').toggle();
@@ -120,7 +120,7 @@
 				    jQuery('#create_form_data_tickets').val('Hide Creation Form');
 				}
 
-			})
+			// })
 
 		})
 
@@ -380,13 +380,31 @@
 			var select1 = jQuery('#title');		
 			var select2 = jQuery('#id_group');
 			var select3 = jQuery('#priority');
-			var select4 = jQuery('#description');	
+			var select4 = jQuery('#description');
+			var select5 = jQuery('#status');
+			var select6 = jQuery('#id_incident_type');
+			
+			var select7 = jQuery('#field1');
+			var select8 = jQuery('#field2');
+			var select9 = jQuery('#field3');
+			var select10 = jQuery('#field4');
+			var select11 = jQuery('#field5');
+			var select12 = jQuery('#field6');
 
 			if(select.prop) {
 				var options1 = select1.prop('options');
 				var options2 = select2.prop('options');
 				var options3 = select3.prop('options');
 				var options4 = select4.prop('options');
+				var options5 = select5.prop('options');
+				var options6 = select6.prop('options');
+				
+				var options7 = select7.prop('options');
+				var options8 = select8.prop('options');
+				var options9 = select9.prop('options');
+				var options10 = select10.prop('options');
+				var options11 = select11.prop('options');
+				var options12 = select12.prop('options');
 
 
 			}
@@ -395,6 +413,15 @@
 				var options2 = select2.atrr('options');
 				var options3 = select3.atrr('options');
 				var options4 = select4.atrr('options');
+				var options5 = select5.atrr('options');
+				var options6 = select6.atrr('options');
+				
+				var options7 = select7.atrr('options');
+				var options8 = select8.atrr('options');
+				var options9 = select9.atrr('options');
+				var options10 = select10.atrr('options');
+				var options11 = select11.atrr('options');
+				var options12 = select12.atrr('options');
 			}
 
 			jQuery('option', select).remove(); 
@@ -406,7 +433,16 @@
 			      	options1[options1.length] = new Option(i, i);
 			      	options2[options2.length] = new Option(i, i);
 			      	options3[options3.length] = new Option(i, i);
-			      	options4[options4.length] = new Option(i, i);								
+			      	options4[options4.length] = new Option(i, i);
+							options5[options5.length] = new Option(i, i);
+							options6[options6.length] = new Option(i, i);
+							
+							options7[options7.length] = new Option(i, i);
+							options8[options8.length] = new Option(i, i);
+							options9[options9.length] = new Option(i, i);
+							options10[options10.length] = new Option(i, i);
+							options11[options11.length] = new Option(i, i);
+							options12[options12.length] = new Option(i, i);								
 			      }
 	     	}
 			  
@@ -414,7 +450,16 @@
 			select1.val(options1);
 			select2.val(options2);
 			select3.val(options3);
-			select4.val(options4);	
+			select4.val(options4);
+			select5.val(options5);
+			select6.val(options6);
+			
+			select7.val(options7);
+			select8.val(options8);
+			select9.val(options9);
+			select10.val(options10);
+			select11.val(options11);
+			select12.val(options12);
 
 		})
 
@@ -507,38 +552,211 @@
 			if(jQuery('#description-static').val().length > 0 && (jQuery('#description').val() == '' || jQuery('#description').val() == null)){	// vacio lleno
 				var description = '-';
 				var description_value = jQuery('#description-static').val();
-				console.log(1);
 			}
 			else if (jQuery('#description-static').val().length <= 0 && (jQuery('#description').val() == '' || jQuery('#description').val() == null)) { //vacio vacio
 				var description = '';
 				var description_value = '';
-				console.log(2);
 			}
 			else if (jQuery('#description-static').val().length <= 0 && (jQuery('#description').val() != '' || jQuery('#description').val() != null)) { //lleno vacio
 				var description = jQuery('#description').val();
 				var description_value = '-';
-				console.log(3);
 			}
 			else if (jQuery('#description-static').val().length > 0 && (jQuery('#description').val() != '' || jQuery('#description').val() != null)) { //lleno lleno
 				var description = '-';
 				var description_value = jQuery('#description-static').val();
-				console.log(4);
 			}
 			else{ //??
 				var description = '';
 				var description_value = '';
-				console.log(5);
 			}
-	
+
+
+			// If status-static is full, use it
+			if(jQuery('#status-static').val().length > 0 && (jQuery('#status').val() == '' || jQuery('#status').val() == null)){	// vacio lleno
+				var status = '-';
+				var status_value = jQuery('#status-static').val();
+			}
+			else if (jQuery('#status-static').val().length <= 0 && (jQuery('#status').val() == '' || jQuery('#status').val() == null)) { //vacio vacio
+				var status = '';
+				var status_value = '';
+			}
+			else if (jQuery('#status-static').val().length <= 0 && (jQuery('#status').val() != '' || jQuery('#status').val() != null)) { //lleno vacio
+				var status = jQuery('#status').val();
+				var status_value = '-';
+			}
+			else if (jQuery('#status-static').val().length > 0 && (jQuery('#status').val() != '' || jQuery('#status').val() != null)) { //lleno lleno
+				var status = '-';
+				var status_value = jQuery('#status-static').val();
+			}
+			else{ //??
+				var status = '';
+				var status_value = '';
+			}
+
+
+			if(jQuery('#id_incident_type-static').val().length > 0 && (jQuery('#id_incident_type').val() == '' || jQuery('#id_incident_type').val() == null)){	// vacio lleno
+				var id_incident_type = '-';
+				var id_incident_type_value = jQuery('#id_incident_type-static').val();
+			}
+			else if (jQuery('#id_incident_type-static').val().length <= 0 && (jQuery('#id_incident_type').val() == '' || jQuery('#id_incident_type').val() == null)) { //vacio vacio
+				var id_incident_type = '';
+				var id_incident_type_value = '';
+			}
+			else if (jQuery('#id_incident_type-static').val().length <= 0 && (jQuery('#id_incident_type').val() != '' || jQuery('#id_incident_type').val() != null)) { //lleno vacio
+				var id_incident_type = jQuery('#id_incident_type').val();
+				var id_incident_type_value = '-';
+			}
+			else if (jQuery('#id_incident_type-static').val().length > 0 && (jQuery('#id_incident_type').val() != '' || jQuery('#id_incident_type').val() != null)) { //lleno lleno
+				var id_incident_type = '-';
+				var id_incident_type_value = jQuery('#id_incident_type-static').val();
+			}
+			else{ //??
+				var id_incident_type = '';
+				var id_incident_type_value = '';
+			}
+
+
+			if(jQuery('#field1-static').val().length > 0 && (jQuery('#field1').val() == '' || jQuery('#field1').val() == null)){	// vacio lleno
+				var field1 = '-';
+				var field1_value = jQuery('#field1-static').val();
+			}
+			else if (jQuery('#field1-static').val().length <= 0 && (jQuery('#field1').val() == '' || jQuery('#field1').val() == null)) { //vacio vacio
+				var field1 = '';
+				var field1_value = '';
+			}
+			else if (jQuery('#field1-static').val().length <= 0 && (jQuery('#field1').val() != '' || jQuery('#field1').val() != null)) { //lleno vacio
+				var field1 = jQuery('#field1').val();
+				var field1_value = '-';
+			}
+			else if (jQuery('#field1-static').val().length > 0 && (jQuery('#field1').val() != '' || jQuery('#field1').val() != null)) { //lleno lleno
+				var field1 = '-';
+				var field1_value = jQuery('#field1-static').val();
+			}
+			else{ //??
+				var field1 = '';
+				var field1_value = '';
+			}
+
+
+			if(jQuery('#field2-static').val().length > 0 && (jQuery('#field2').val() == '' || jQuery('#field2').val() == null)){	// vacio lleno
+				var field2 = '-';
+				var field2_value = jQuery('#field2-static').val();
+			}
+			else if (jQuery('#field2-static').val().length <= 0 && (jQuery('#field2').val() == '' || jQuery('#field2').val() == null)) { //vacio vacio
+				var field2 = '';
+				var field2_value = '';
+			}
+			else if (jQuery('#field2-static').val().length <= 0 && (jQuery('#field2').val() != '' || jQuery('#field2').val() != null)) { //lleno vacio
+				var field2 = jQuery('#field2').val();
+				var field2_value = '-';
+			}
+			else if (jQuery('#field2-static').val().length > 0 && (jQuery('#field2').val() != '' || jQuery('#field2').val() != null)) { //lleno lleno
+				var field2 = '-';
+				var field2_value = jQuery('#field2-static').val();
+			}
+			else{ //??
+				var field2 = '';
+				var field2_value = '';
+			}
+
+
+			if(jQuery('#field3-static').val().length > 0 && (jQuery('#field3').val() == '' || jQuery('#field3').val() == null)){	// vacio lleno
+				var field3 = '-';
+				var field3_value = jQuery('#field3-static').val();
+			}
+			else if (jQuery('#field3-static').val().length <= 0 && (jQuery('#field3').val() == '' || jQuery('#field3').val() == null)) { //vacio vacio
+				var field3 = '';
+				var field3_value = '';
+			}
+			else if (jQuery('#field3-static').val().length <= 0 && (jQuery('#field3').val() != '' || jQuery('#field3').val() != null)) { //lleno vacio
+				var field3 = jQuery('#field3').val();
+				var field3_value = '-';
+			}
+			else if (jQuery('#field3-static').val().length > 0 && (jQuery('#field3').val() != '' || jQuery('#field3').val() != null)) { //lleno lleno
+				var field3 = '-';
+				var field3_value = jQuery('#field3-static').val();
+			}
+			else{ //??
+				var field3 = '';
+				var field3_value = '';
+			}
+
+
+			if(jQuery('#field4-static').val().length > 0 && (jQuery('#field4').val() == '' || jQuery('#field4').val() == null)){	// vacio lleno
+				var field4 = '-';
+				var field4_value = jQuery('#field4-static').val();
+			}
+			else if (jQuery('#field4-static').val().length <= 0 && (jQuery('#field4').val() == '' || jQuery('#field4').val() == null)) { //vacio vacio
+				var field4 = '';
+				var field4_value = '';
+			}
+			else if (jQuery('#field4-static').val().length <= 0 && (jQuery('#field4').val() != '' || jQuery('#field4').val() != null)) { //lleno vacio
+				var field4 = jQuery('#field4').val();
+				var field4_value = '-';
+			}
+			else if (jQuery('#field4-static').val().length > 0 && (jQuery('#field4').val() != '' || jQuery('#field4').val() != null)) { //lleno lleno
+				var field4 = '-';
+				var field4_value = jQuery('#field4-static').val();
+			}
+			else{ //??
+				var field4 = '';
+				var field4_value = '';
+			}
+
+
+			if(jQuery('#field5-static').val().length > 0 && (jQuery('#field5').val() == '' || jQuery('#field5').val() == null)){	// vacio lleno
+				var field5 = '-';
+				var field5_value = jQuery('#field5-static').val();
+			}
+			else if (jQuery('#field5-static').val().length <= 0 && (jQuery('#field5').val() == '' || jQuery('#field5').val() == null)) { //vacio vacio
+				var field5 = '';
+				var field5_value = '';
+			}
+			else if (jQuery('#field5-static').val().length <= 0 && (jQuery('#field5').val() != '' || jQuery('#field5').val() != null)) { //lleno vacio
+				var field5 = jQuery('#field5').val();
+				var field5_value = '-';
+			}
+			else if (jQuery('#field5-static').val().length > 0 && (jQuery('#field5').val() != '' || jQuery('#field5').val() != null)) { //lleno lleno
+				var field5 = '-';
+				var field5_value = jQuery('#field5-static').val();
+			}
+			else{ //??
+				var field5 = '';
+				var field5_value = '';
+			}
 			
+			
+			if(jQuery('#field6-static').val().length > 0 && (jQuery('#field6').val() == '' || jQuery('#field6').val() == null)){	// vacio lleno
+				var field6 = '-';
+				var field6_value = jQuery('#field6-static').val();
+			}
+			else if (jQuery('#field6-static').val().length <= 0 && (jQuery('#field6').val() == '' || jQuery('#field6').val() == null)) { //vacio vacio
+				var field6 = '';
+				var field6_value = '';
+			}
+			else if (jQuery('#field6-static').val().length <= 0 && (jQuery('#field6').val() != '' || jQuery('#field6').val() != null)) { //lleno vacio
+				var field6 = jQuery('#field6').val();
+				var field6_value = '-';
+			}
+			else if (jQuery('#field6-static').val().length > 0 && (jQuery('#field6').val() != '' || jQuery('#field6').val() != null)) { //lleno lleno
+				var field6 = '-';
+				var field6_value = jQuery('#field6-static').val();
+			}
+			else{ //??
+				var field6 = '';
+				var field6_value = '';
+			}
 
 
-			if( title != '' && id_group != '' && priority != '' && description != '' && title_value != '' && id_group_value != '' && priority_value != '' && description_value != '' 
-				&& title != null && id_group != null && priority != null && description != null
-				&& title_value != null && id_group_value != null && priority_value != null && description_value != null ){ 
+			if( title != '' && id_group != '' && priority != '' && description != '' && status != '' && id_incident_type != '' 
+				&& title_value != '' && id_group_value != '' && priority_value != '' && description_value != '' && status_value != '' && id_incident_type_value != ''
+				&& title != null && id_group != null && priority != null && description != null && status != null && id_incident_type != null
+				&& title_value != null && id_group_value != null && priority_value != null && description_value != null && status_value != null && id_incident_type_value != null ){
 
 
 				var valid_priority_values = ['10','0','1','2','3','4'];	
+				var valid_status_values = ['1','2','3','4','5','6', '7'];	
+				
 
 				if(name_form == '[select form]' ){				
 					jQuery('#show-message_tickets').text('Select a form.').addClass('error').css('color', 'red');
@@ -548,6 +766,12 @@
 				}
 				else if( jQuery.inArray(priority_value,valid_priority_values) === -1 && priority_value != '-'){
 					jQuery('#show-message_tickets').text('The valid values for Priority are: 10, 0, 1, 2, 3, y 4.').addClass('error').css('color', 'red');
+				}
+				else if( jQuery.inArray(status_value,valid_status_values) === -1 && status_value != '-'){
+					jQuery('#show-message_tickets').text('The valid values for Status are: 1, 2, 3, 4, 5, 6 y 7.').addClass('error').css('color', 'red');
+				}
+				else if(!jQuery.isNumeric(id_incident_type_value) && id_incident_type_value != '-'){
+					jQuery('#show-message_tickets').text('ID Incident type is not a number.').addClass('error').css('color', 'red');
 				}
 				else{
 
@@ -560,11 +784,27 @@
 						'id_group' : id_group,
 						'priority' : priority,
 						'description' : description,
+						'status' : status,
+						'id_incident_type' : id_incident_type,
+						'field1' : field1,
+						'field2' : field2,
+						'field3' : field3,
+						'field4' : field4,
+						'field5' : field5,
+						'field6' : field6,
 
 						'title_value' : title_value,
 						'id_group_value' : id_group_value,
 						'priority_value' : priority_value,
-						'description_value' : description_value
+						'description_value' : description_value,
+						'status_value' : status_value,
+						'id_incident_type_value' : id_incident_type_value,
+						'field1_value' : field1_value,
+						'field2_value' : field2_value,
+						'field3_value' : field3_value,
+						'field4_value' : field4_value,
+						'field5_value' : field5_value,
+						'field6_value' : field6_value
 					}
 
 
@@ -573,7 +813,7 @@
 						//alert('Got this from the server: ' + response);
 
 						if(response != 1){
-							//console.log('duplicate');
+							// console.log(response);
 							jQuery('#show-message_tickets').text('Error. Check if your form already exists in the table.').addClass('error').css('color', 'red');
 						}
 						else{

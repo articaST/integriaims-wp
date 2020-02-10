@@ -986,7 +986,7 @@ class IIMS_AdminPages {
 										type="text"
 										name="iimswp-options-tickets[status-static]"
 										value=""
-										placeholder="1 (New), 2(Unconfirmed), 3(Assigned), 4(Re-opened), 5(Pending to be closed), 6(Pending on a third person), 7(closed)"
+										placeholder="1(New), 2(Unconfirmed), 3(Assigned), 4(Re-opened), 5(Pending to be closed), 6(Pending on a third person), 7(closed)"
 										id="status-static"
 										/>
 								</label>
@@ -1025,6 +1025,7 @@ class IIMS_AdminPages {
 										type="text"
 										name="iimswp-options-tickets[id_incident_type-static]"
 										value=""
+										placeholder="0(Without type)"
 										id="id_incident_type-static"
 										/>
 								</label>
@@ -1035,7 +1036,7 @@ class IIMS_AdminPages {
 					<?php for ($i = 1; $i <= 6; $i++) { ?> 
 					<tr valign="top">
 						<th scope="row">
-							<?php esc_html_e("Field".$i);?>
+							<?php esc_html_e("Field".$i." (opcional)");?>
 						</th>
 						<td>
 							<fieldset>

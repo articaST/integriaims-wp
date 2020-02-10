@@ -1177,7 +1177,7 @@ class IntegriaIMS_WP {
 			$title != null && $id_group != null && $priority != null && $description != null && $status != null && 
 			$title_value != null && $id_group_value != null && $priority_value != null && $description_value != null && $status_value != null ){ 
 			//Check if the incident type exist. If not, custom fields will be null
-			if ($id_incident_type === '' || $id_incident_type === NULL || $id_incident_type === '' || $id_incident_type === NULL){
+			if ($id_incident_type == '' || $id_incident_type == NULL || $id_incident_type_value == '' || $id_incident_type_value == NULL){
 				$field1 = NULL;
 				$field2 = NULL;
 				$field3 = NULL;
@@ -1228,7 +1228,7 @@ class IntegriaIMS_WP {
 				'priority_value' => htmlentities($priority_value),
 				'description_value' => htmlentities($description_value),
 				'status_value' => htmlentities($status_value),
-				'id_incident_type' => htmlentities($id_incident_type),
+				'id_incident_type_value' => htmlentities($id_incident_type_value),
 				'field1_value' => htmlentities($field1_value),
 				'field2_value' => htmlentities($field2_value),
 				'field3_value' => htmlentities($field3_value),

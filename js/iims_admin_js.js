@@ -99,31 +99,22 @@
 
 		jQuery(document).ready(function($) {
 
-			var data = {
-				
+			jQuery('#create_toggle').toggle();
+			jQuery('#create_toggle_tickets').toggle();
+
+			var display = jQuery('#create_toggle').css('display');
+			var display2 = jQuery('#create_toggle_tickets').css('display');
+
+			if (display == 'none' || display2 == 'none') {
+				jQuery('#create_form_data').val('Create');
+				jQuery('#create_form_data_tickets').val('Create Ticket');
+			}
+			else{
+				jQuery('#create_form_data').val('Hide Creation Form');
+			    jQuery('#create_form_data_tickets').val('Hide Creation Form');
 			}
 
-			// jQuery.post(ajaxurl, data, function(response) {
-				
-				jQuery('#create_toggle').toggle();
-				jQuery('#create_toggle_tickets').toggle();
-
-				var display = jQuery('#create_toggle').css('display');
-				var display2 = jQuery('#create_toggle_tickets').css('display');
-
-				if (display == 'none' || display2 == 'none') {
-					jQuery('#create_form_data').val('Create');
-					jQuery('#create_form_data_tickets').val('Create Ticket');
-				}
-				else{
-					jQuery('#create_form_data').val('Hide Creation Form');
-				    jQuery('#create_form_data_tickets').val('Hide Creation Form');
-				}
-
-			// })
-
 		})
-
 
 	}
 	// ===== END === Button toggle for button create/hide form =====

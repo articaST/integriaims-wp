@@ -1,7 +1,7 @@
 <?php
 /**
  * @package IntegriaIMS WP
- * @version 1.0
+ * @version 1.1
  */
 /*
 Plugin Name: Integria IMS integration for Wordpress

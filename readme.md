@@ -1,9 +1,9 @@
 === Integria IMS integration for Wordpress ===
 Contributors: articast 
 Tags: integria, leads, ticketing, support, crm, integration, customer support
-Requires at least: 1.0
-Tested up to: 1.0
-Stable tag: 1.0
+Requires at least: 4.6
+Tested up to: 5.3.2
+Stable tag: 1.1
 License: Apache License 2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 

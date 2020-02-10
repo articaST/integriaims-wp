@@ -72,7 +72,10 @@ Sections:
 
 
 == Changelog ==
-
+= 1.0 =
+* First stable version.
+= 1.1 =
+* Added custom fields for type tickets.
 
 == Upgrade Notice ==
 

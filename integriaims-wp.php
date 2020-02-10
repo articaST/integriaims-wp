@@ -8,7 +8,7 @@ Plugin Name: Integria IMS integration for Wordpress
 Plugin URI: https://github.com/articaST/integriaims-wp
 Description: Integration of wordpress with Integria IMS: lead generation and tickets using Integria IMS restful API and Formidable plugin.
 Author: Artica ST
-Version: 1.0
+Version: 1.1
 Author URI: http://artica.es/
 Text Domain: integriaims-wp
 License: GPLv2
